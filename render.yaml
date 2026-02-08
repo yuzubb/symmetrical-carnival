@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: mangafire-api
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      playwright install firefox
+      playwright install-deps firefox
+    startCommand: python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
