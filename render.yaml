@@ -4,12 +4,12 @@ services:
     env: python
     buildCommand: |
       pip install -r requirements.txt
-      export PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/ms-playwright 
+      export PLAYWRIGHT_BROWSERS_PATH=./pw-browsers
       playwright install firefox
       playwright install-deps firefox
     startCommand: |
-      export PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/ms-playwright
+      export PLAYWRIGHT_BROWSERS_PATH=./pw-browsers
       python app.py
     envVars:
       - key: PYTHON_VERSION
-        value: 3.13.0 
+        value: 3.13.0
